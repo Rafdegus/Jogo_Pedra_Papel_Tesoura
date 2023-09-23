@@ -4,38 +4,39 @@
 import random
 
 # 01 Instanciar variáveis #
-Escolha_Jogador = input("Escolhe um (pedra, papel, tesoura): ")
-pc = random.choice (("pedra", "papel", "tesoura"))
+Escolha_Jogador = input("Escolhe um (pedra, papel, tesoura): ").lower()
+pc = random.choice(("pedra", "papel", "tesoura"))
 
 # 02 Lógica #
+def escolha():
+    if Escolha_Jogador == "pedra" and pc == "tesoura":
+        return "Jogador Ganhou"
+    if Escolha_Jogador == "pedra" and pc == "papel":
+        return "Jogador Perdeu"
+    if Escolha_Jogador == "pedra" and pc == "pedra":
+        return "Jogador Empatou"
+    if Escolha_Jogador == "papel" and pc == "pedra":
+        return "Jogador Ganhou"
+    if Escolha_Jogador == "papel" and pc == "papel":
+        return "Jogador Empatou"
+    if Escolha_Jogador == "papel" and pc == "tesoura":
+        return "Jogador Perdeu"
+    if Escolha_Jogador == "tesoura" and pc == "pedra":
+        return "Jogador Perdeu"
+    if Escolha_Jogador == "tesoura" and pc == "papel":
+        return "Jogador Ganhou"
+    if Escolha_Jogador == "tesoura" and pc == "tesoura":
+        return "Jogador Empatou"
+    return ""
 
+resultado = escolha()
 
-if Escolha_Jogador  == "pedra" and pc == "tesoura":
-    resultado = "Jogador Ganhou"
-
-if Escolha_Jogador == "pedra" and pc == "papel":
-    resultado = "Jogador Perdeu"
-
-if Escolha_Jogador == "pedra" and pc == "pedra":
-    resultado = "Jogador Empatou"
-
-if Escolha_Jogador == "papel" and pc == "pedra":
-    resultado = "Jogador Perdeu"
-
-if Escolha_Jogador == "papel" and pc == "papel":
-    resultado = "Jogador Empatou"
-
-if Escolha_Jogador == "papel" and pc == "tesoura":
-    resultado = "Jogador Ganhou"
-
-if Escolha_Jogador == "tesoura" and pc == "pedra":
-    resultado = "Jogador Perdeu"
-
-if Escolha_Jogador == "tesoura" and pc == "papel":
-    resultado = "Jogador Ganhou"
-
-if Escolha_Jogador == "tesoura" and pc == "tesoura":
-    resultado = "Jogador Empatou"
+while True:
+    if resultado != "":
+        break
+    print("Escolha Errada")
+    Escolha_Jogador = input("Escolhe um (pedra, papel, tesoura): ").lower()
+    resultado = escolha()
 
 # 03 Resultado #
 print(resultado)
